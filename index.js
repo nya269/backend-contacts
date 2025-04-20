@@ -5,6 +5,7 @@ require("dotenv").config();
 
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
@@ -12,12 +13,12 @@ app.use(express.json());
 const contactsRoutes = require("./routes/contacts");
 app.use("/contacts", contactsRoutes);
 
-// Route test
+// ✅ Route par défaut pour Railway
 app.get("/", (req, res) => {
-  res.send("Bienvenue dans l'API de gestion de contacts !");
+  res.send("✅ Backend déployé avec succès sur Railway !");
 });
 
-// Lancement
+// Lancement du serveur
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Serveur lancé sur http://localhost:${PORT}`);
